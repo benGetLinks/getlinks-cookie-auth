@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { logoutUser } from 'lib/auth'
+import { LayoutRoot, Nav, NavButton } from './LayoutStyles'
 
 const Layout = ({
   children,
@@ -9,9 +10,9 @@ const Layout = ({
   const { user = {} } = auth || {}
 
   return (
-  <div className='root'>
-    <nav className='navbar'>
-      <span>Welcome, <b>{ user ? user.name : 'Guest'}</b></span>
+  <LayoutRoot className='root'>
+    <Nav className='navbar'>
+      <span>Welcome, <b>{ user && user.email ? user.name : 'Guest'}</b></span>
       <div>
         <Link href='/'>
           <a>Home</a>
@@ -20,44 +21,19 @@ const Layout = ({
         { user.email ? (
           <>
         <Link href='/profile'>
-          <a>Profile</a>
+          <a style={{margin: '0 5px'}}>Profile</a>
         </Link>
-        <button onClick={logoutUser}>Logout</button>
+        <NavButton onClick={logoutUser}>Logout</NavButton>
         </> ) : (
         <Link href='/login'>
-          <a>Login</a>
+          <a style={{}}>Login</a>
         </Link>
         )}
       </div>
-    </nav>
+    </Nav>
     <h1>{title}</h1>
     {children}
-
-    <style jsx>{`
-      .root {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      .navbar {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-      }
-      a {
-        margin-right: 0.5em; 
-      }
-      button {
-        text-decoration: underline;
-        padding: 0;
-        margin: 0 5px 0 0;
-        font: inherit;
-        border-style: none;
-        cursor: pointer;
-      }
-    `}</style>
-  </div>
+  </LayoutRoot>
 )}
 
 export default Layout
