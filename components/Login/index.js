@@ -1,8 +1,9 @@
 import { Input, Button } from 'getlinks-ui'
 import { loginUser } from 'lib/auth'
 import Router from 'next/router'
+import { Form } from './LoginStyles'
 
-class LoginForm extends React.Component {
+class Login extends React.Component {
   state = {
     email: 'Rey.Padberg@karina.biz',
     password: 'ambrose.net',
@@ -36,8 +37,7 @@ class LoginForm extends React.Component {
   render() {
     const { email, password, error, isLoading } = this.state
     return (
-      <form
-        style={{margin: 'auto', minWidth: '320px'}}
+      <Form
         onSubmit={this.handleSubmit}
       >
         <header className='login-header' style={{textAlign: 'center'}}>
@@ -70,9 +70,10 @@ class LoginForm extends React.Component {
         >
           {isLoading ? 'Authenticating' : 'Login' }</Button>
         {error && <span>{error}</span>}
-      </form>
+      </Form>
     )
   }
 }
 
-export default LoginForm
+export default Login
+
