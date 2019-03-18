@@ -1,5 +1,6 @@
 import { Input, Button } from 'getlinks-ui'
 import { loginUser } from 'lib/auth'
+import Router from 'next/router'
 
 class LoginForm extends React.Component {
   state = {
@@ -14,8 +15,10 @@ class LoginForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault()
     const { email, password } = this.state
-    loginUser(email, password)
-    console.log(loginUser(email, password))
+    loginUser(email, password).then(() => {
+      Router.push('/profile')
+    })
+   
   }
 
   render() {
