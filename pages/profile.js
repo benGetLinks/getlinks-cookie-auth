@@ -1,5 +1,5 @@
 import Layout from 'components/Layout'
-import { getUserProfile } from 'lib/auth'
+import { getUserProfile, authInitialProps } from 'lib/auth'
 
 
 export default class Profile extends React.Component {
@@ -14,10 +14,11 @@ export default class Profile extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <Layout>
-      <h1>Profile</h1>
+      <Layout title='Profile' {...this.props}>
       <pre>{JSON.stringify(this.state.user, null, 2)}</pre>
       </Layout>
     )
   }
 }
+
+Profile.getInitialProps = authInitialProps()

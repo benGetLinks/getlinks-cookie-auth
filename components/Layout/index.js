@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button } from 'getlinks-ui'
+import { logoutUser } from 'lib/auth'
 
 const Layout = ({
   children,
@@ -22,7 +22,7 @@ const Layout = ({
         <Link href='/profile'>
           <a>Profile</a>
         </Link>
-        <button size='sm'>Logout</button>
+        <button onClick={logoutUser}>Logout</button>
         </> ) : (
         <Link href='/login'>
           <a>Login</a>
