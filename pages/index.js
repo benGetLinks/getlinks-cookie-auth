@@ -1,18 +1,14 @@
-import LoginForm from 'components/LoginForm'
-import { GlobalCss } from 'getlinks-ui'
-import { css } from 'styled-components'
+import Home from 'components/Home'
+import Layout from 'components/Layout'
+import Link from 'next/link'
 
-const addToGlobal = css`
-  #__next {
-    justify-content: center;
-  }
-`
 
 export default function Index () {
   return (
-    <>
-      <GlobalCss />
-      <LoginForm />
-    </>
+    <Layout title='Home'>
+      <Link href='/profile'>
+        <a>Go to Profile</a>
+      </Link>
+    </Layout>
   )
 }
