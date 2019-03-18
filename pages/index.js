@@ -1,14 +1,12 @@
 import Layout from 'components/Layout'
-import Link from 'next/link'
+import Home from 'components/Home'
 import { authInitialProps } from 'lib/auth'
 
 
 export default function Index (props) {
   return (
     <Layout title='Home' {...props}>
-      <Link href='/profile'>
-        <a>Go to Profile</a>
-      </Link>
+      <Home />
     </Layout>
   )
 }

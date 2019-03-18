@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
         })
 
       const initialProps = await Document.getInitialProps(ctx)
-      console.log('initialProps: ', initialProps)
       const userData = await getServerSideToken(ctx.req)
       return {
         ...initialProps,
@@ -31,7 +30,6 @@ export default class MyDocument extends Document {
 
   render() {
     const { user = {} } = this.props
-    console.log(this.props)
     return (
       <html>
         <Head />
