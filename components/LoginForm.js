@@ -3,8 +3,8 @@ import { loginUser } from 'lib/auth'
 
 class LoginForm extends React.Component {
   state = {
-    email: '',
-    password: ''
+    email: 'Rey.Padberg@karina.biz',
+    password: 'ambrose.net'
   }
 
   handleChange = event => {
@@ -19,6 +19,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { email, password } = this.state
     return (
       <form
         style={{margin: 'auto', minWidth: '320px'}}
@@ -34,6 +35,7 @@ class LoginForm extends React.Component {
           wrapperCss='margin-bottom: 9px'
           placeholder='Your email'
           onChange={this.handleChange}
+          value={email}
         />
         <Input
           type='password'
@@ -43,6 +45,7 @@ class LoginForm extends React.Component {
           placeholder='Password'
           onChange={this.handleChange}
           autocomplete='current-password'
+          value={password}
           />
         <Button
           type='submit'
